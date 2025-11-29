@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Fresh - Premium Seafood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 51%, #2989d8 100%);
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 30px 0;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo h1:first-child {
+            color: #fff;
+            margin-right: 15px;
+        }
+        
+        .logo h1:last-child {
+            color: #a8e6cf;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-top: 10px;
+            color: #e0f7fa;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #e0f7fa;
+        }
+        
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 60px 0;
+        }
+        
+        .product-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #0a4a7a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #a8e6cf;
+        }
+        
+        .product-description {
+            margin-bottom: 15px;
+            color: #e0f7fa;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffcc80;
+        }
+        
+        footer {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .address {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .product-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>OCEAN</h1>
+                <h1>FRESH</h1>
+            </div>
+            <p class="tagline">QUALITY IS OUR FIRST PRIORITY</p>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h2>Premium Quality Seafood</h2>
+            <p>At Ocean Fresh, we deliver the finest seafood directly from the ocean to your table. Our commitment to quality ensures that every product meets the highest standards of freshness and taste.</p>
+        </div>
+    </section>
+    
+    <section class="products">
+        <div class="container">
+            <div class="product-card">
+                <div class="product-image">
+                    🐟
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Fresh Salmon Fillet</div>
+                    <div class="product-description">Premium Atlantic salmon, rich in omega-3 fatty acids. Perfect for grilling, baking, or pan-searing.</div>
+                    <div class="product-price">৳ 850/kg</div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    🦐
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Jumbo Tiger Prawns</div>
+                    <div class="product-description">Large, succulent tiger prawns with firm texture and sweet flavor. Ideal for grilling or curry.</div>
+                    <div class="product-price">৳ 1,200/kg</div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    🦀
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Blue Swimmer Crabs</div>
+                    <div class="product-description">Fresh blue crabs with delicate, sweet meat. Perfect for traditional Bengali crab curry.</div>
+                    <div class="product-price">৳ 700/kg</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="address">
+                House-16, Road-04, Block-F, Banani, Dhaka
+            </div>
+            <div class="copyright">
+                &copy; 2023 Ocean Fresh. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
