@@ -114,7 +114,7 @@ body {
     min-height: 100%;
 }
 
-/* Main Content - Improved Transparency */
+/* Main Content */
 .main-content {
     opacity: 0;
     transform: translateY(20px);
@@ -138,13 +138,13 @@ body {
     transform: translateY(0);
 }
 
-/* Header - Fixed mobile layout */
+/* Header */
 .header {
     padding: 15px 0;
     background-color: rgba(10, 36, 99, 0.7);
     border-bottom: 2px solid rgba(168, 230, 207, 0.3);
     position: relative;
-    z-index: 3;
+    z-index: 100;
     backdrop-filter: blur(10px);
 }
 
@@ -153,29 +153,50 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    height: 80px;
 }
 
-/* Center the logo absolutely */
+/* Navbar Hamburger Button */
+.nav-hamburger-btn {
+    background: rgba(168, 230, 207, 0.2);
+    border: 2px solid #a8e6cf;
+    color: #a8e6cf;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    z-index: 101;
+}
+
+.nav-hamburger-btn:hover {
+    background: rgba(168, 230, 207, 0.3);
+    transform: scale(1.05);
+}
+
+/* Logo */
 .logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    height: 80px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .logo img {
-    height: 100%;
-    max-height: 80px;
+    height: 80px;
     width: auto;
     object-fit: contain;
 }
 
-/* Right square image - always on right */
+/* Right square image */
 .header-image {
-    margin-left: auto;
     display: flex;
     align-items: center;
 }
@@ -186,6 +207,148 @@ body {
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Sidebar Menu */
+.nav-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 36, 99, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: left 0.4s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-sidebar.active {
+    left: 0;
+}
+
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(168, 230, 207, 0.3);
+    background: rgba(10, 36, 99, 0.8);
+}
+
+.sidebar-header h3 {
+    color: #a8e6cf;
+    font-size: 1.8rem;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.close-sidebar {
+    background: rgba(168, 230, 207, 0.2);
+    border: 2px solid #a8e6cf;
+    color: #a8e6cf;
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.close-sidebar:hover {
+    background: rgba(168, 230, 207, 0.3);
+    transform: rotate(90deg);
+}
+
+.sidebar-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Hamburger menu list (vertical) */
+.nav-product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-product-list li {
+    margin-bottom: 0;
+}
+
+.nav-product-list a {
+    display: block;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(168, 230, 207, 0.2);
+    border-radius: 10px;
+    color: #e0f7fa;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.nav-product-list a:hover,
+.nav-product-list a.active {
+    background: rgba(168, 230, 207, 0.2);
+    color: #a8e6cf;
+    transform: translateX(5px);
+    border-color: rgba(168, 230, 207, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* WhatsApp Link Styling */
+.whatsapp-link {
+    color: #25D366;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid #25D366;
+    padding: 2px 4px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.whatsapp-link:hover {
+    background-color: rgba(37, 211, 102, 0.1);
+    border-radius: 4px;
+    transform: translateY(-2px);
+}
+
+.phone .whatsapp-link {
+    color: #e0f7fa;
+    border-bottom-color: #25D366;
+}
+
+.phone .whatsapp-link:hover {
+    color: #25D366;
 }
 
 /* Hero Section */
@@ -207,6 +370,12 @@ body {
     color: #a8e6cf;
 }
 
+.hero-logo {
+    max-height: 60px;
+    margin: 15px auto;
+    display: block;
+}
+
 .hero p {
     font-size: 1.3rem;
     max-width: 800px;
@@ -217,6 +386,7 @@ body {
     animation: fadeInUp 0.8s ease forwards;
     animation-delay: 0.4s;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.8;
 }
 
 .hero .order-btn {
@@ -248,34 +418,114 @@ body {
     background: linear-gradient(to right, transparent, #a8e6cf, transparent);
 }
 
-/* Products Section - Removed Cards */
+/* Products Section */
 .products {
     padding: 80px 0;
     position: relative;
     z-index: 2;
 }
 
-.product-row {
+.products-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* Carousel Styles - FIXED ARROW POSITION */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 80px; /* Space for arrows */
+}
+
+/* Carousel arrows - BESIDE THE CAROUSEL */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(168, 230, 207, 0.2);
+    border: 2px solid #a8e6cf;
+    color: #a8e6cf;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    margin-bottom: 100px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    position: relative;
-    z-index: 2;
-    padding: 40px 0;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.product-row.visible {
-    opacity: 1;
-    transform: translateY(0);
+.carousel-btn:hover {
+    background: rgba(168, 230, 207, 0.3);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-.product-row.reverse {
-    flex-direction: row-reverse;
+.prev-btn {
+    left: 0;
 }
 
+.next-btn {
+    right: 0;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.product-card {
+    display: flex;
+    align-items: center;
+    background: rgba(10, 36, 99, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(168, 230, 207, 0.2);
+}
+
+.carousel-indicators {
+    display: none !important;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(168, 230, 207, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #a8e6cf;
+    transform: scale(1.2);
+}
+
+/* Product Styles */
 .product-image {
     flex: 1;
     padding: 0 20px;
@@ -313,18 +563,6 @@ body {
     border-radius: 15px;
 }
 
-.product-photo[alt*="Ocean Tiger"]:before {
-    content: "🦐";
-}
-
-.product-photo[alt*="Pomfret"]:before {
-    content: "🐠";
-}
-
-.product-photo[alt*="Squid"]:before {
-    content: "🦑";
-}
-
 .product-info {
     flex: 1;
     padding: 0 30px;
@@ -340,6 +578,20 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* New Product Weight Styles */
+.product-weight {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #a8e6cf;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    background: rgba(10, 36, 99, 0.3);
+    padding: 8px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    border: 1px solid rgba(168, 230, 207, 0.3);
+}
+
 .product-description {
     margin-bottom: 25px;
     color: #e0f7fa;
@@ -348,12 +600,33 @@ body {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-.product-price {
-    font-size: 1.8rem;
+/* Price Container Styles */
+.price-container {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(10, 36, 99, 0.2);
+    border-radius: 15px;
+    border: 1px solid rgba(168, 230, 207, 0.2);
+}
+
+.price-per-unit {
+    font-size: 1.4rem;
     font-weight: bold;
     color: #ffcc80;
-    margin-bottom: 25px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.price-per-kg {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #a8e6cf;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Hide old product-price class */
+.product-price {
+    display: none;
 }
 
 .order-btn {
@@ -381,7 +654,7 @@ body {
     border-color: #8cdbb8;
 }
 
-/* About Section - ADDED CARDS BACK */
+/* About Section */
 .about {
     padding: 80px 0;
     position: relative;
@@ -432,7 +705,7 @@ body {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-/* Certificates Section - No Cards (as requested) */
+/* Certificates Section */
 .certificates {
     margin-top: 80px;
     padding: 40px 20px;
@@ -513,6 +786,11 @@ body {
     margin-bottom: 40px;
 }
 
+.footer-logo {
+    max-height: 60px;
+    margin-bottom: 15px;
+}
+
 .footer-section h2 {
     color: #a8e6cf;
     margin: 15px 0;
@@ -583,33 +861,30 @@ body {
     }
 }
 
-/* Responsive Design - FIXED HEADER FOR MOBILE */
+/* Responsive Design */
 @media (max-width: 768px) {
     .header .container {
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        position: relative;
-        min-height: 60px;
+        height: 70px;
+        padding: 0 15px;
     }
     
-    /* Make logo smaller on mobile */
-    .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 50px;
+    .nav-hamburger-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
     }
     
     .logo img {
-        height: 100%;
-        max-height: 50px;
+        height: 60px;
     }
     
-    /* Make eq.png smaller but still on right */
     .header-image img {
         height: 50px;
         width: 50px;
+    }
+    
+    .hero {
+        padding: 60px 0;
     }
     
     .hero h2 {
@@ -618,20 +893,71 @@ body {
     
     .hero p {
         font-size: 1.1rem;
+        padding: 0 15px;
     }
     
     .section-title {
         font-size: 2rem;
     }
     
-    .product-row {
+    /* Hamburger menu mobile */
+    .nav-product-list {
         flex-direction: column;
-        margin-bottom: 60px;
-        padding: 20px 0;
+        gap: 8px;
     }
     
-    .product-row.reverse {
+    .nav-product-list a {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+    
+    .sidebar-header {
+        padding: 15px;
+    }
+    
+    .sidebar-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .close-sidebar {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    /* Carousel mobile adjustments */
+    .carousel-wrapper {
+        padding: 0 60px;
+    }
+    
+    .carousel-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+    
+    /* Product weight mobile */
+    .product-weight {
+        font-size: 1.1rem;
+        padding: 6px 12px;
+    }
+    
+    /* Price container mobile */
+    .price-container {
+        padding: 15px;
+    }
+    
+    .price-per-unit {
+        font-size: 1.2rem;
+    }
+    
+    .price-per-kg {
+        font-size: 1.1rem;
+    }
+    
+    .product-card {
         flex-direction: column;
+        padding: 20px;
     }
     
     .product-photo {
@@ -644,10 +970,6 @@ body {
     
     .product-description {
         font-size: 1rem;
-    }
-    
-    .product-price {
-        font-size: 1.5rem;
     }
     
     .features {
@@ -673,20 +995,66 @@ body {
 
 @media (max-width: 480px) {
     .header .container {
-        min-height: 50px;
+        height: 60px;
     }
     
-    .logo {
+    .nav-hamburger-btn {
+        width: 40px;
         height: 40px;
+        font-size: 1.2rem;
     }
     
     .logo img {
-        max-height: 40px;
+        height: 50px;
     }
     
     .header-image img {
         height: 40px;
         width: 40px;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .hero .order-btn,
+    .product-info .order-btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    
+    .whatsapp-link {
+        font-size: 1.1rem;
+    }
+    
+    .carousel-wrapper {
+        padding: 0 50px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    /* Product weight extra small */
+    .product-weight {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+    
+    /* Price container extra small */
+    .price-per-unit {
+        font-size: 1.1rem;
+    }
+    
+    .price-per-kg {
+        font-size: 1rem;
     }
     
     .product-photo {
@@ -701,30 +1069,49 @@ body {
         height: 150px;
         font-size: 2.5rem;
     }
-    
-    .hero .order-btn,
-    .product-info .order-btn {
-        padding: 10px 25px;
-        font-size: 1rem;
-    }
 }
 
-/* Extra small screens - ensure header stays in one line */
+/* Extra small screens */
 @media (max-width: 350px) {
     .header .container {
         padding: 0 10px;
     }
     
-    .logo {
+    .nav-hamburger-btn {
+        width: 35px;
         height: 35px;
+        font-size: 1rem;
     }
     
     .logo img {
-        max-height: 35px;
+        height: 40px;
     }
     
     .header-image img {
         height: 35px;
         width: 35px;
+    }
+    
+    .hero h2 {
+        font-size: 1.6rem;
+    }
+    
+    .hero p {
+        font-size: 0.95rem;
+    }
+    
+    .carousel-wrapper {
+        padding: 0 40px;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+    
+    .nav-product-list a {
+        padding: 10px 12px;
+        font-size: 0.9rem;
     }
 }
